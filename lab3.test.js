@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { hello, guessAnimal, month, isVowel, isLeapYear, allEqual, rollLoadedDie } from "lab3"
+import { hello, guessAnimal, month, isVowel, isLeapYear, allEqual, rollLoadedDie } from "./lab3.js"
 
 describe('test of hello function in lab3', () => {
     it('should always return hello', () => {

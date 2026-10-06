@@ -25,7 +25,7 @@ function hello () {
  * @return {boolean} true if all equal, else false
  */
 function allEqual (a, b, c) {
-    /* write your code here! */
+    return a === b && b === c;
 }
 
 /**
@@ -42,7 +42,14 @@ function allEqual (a, b, c) {
  * @return {number} a number between 1 and 6
  */
 function rollLoadedDie () {
-    /* write your code here! */
+    const roll = Math.random();
+
+    if (roll < 0.1) return 1;
+    if (roll < 0.2) return 2;
+    if (roll < 0.3) return 3;
+    if (roll < 0.4) return 4;
+    if (roll < 0.5) return 5;
+    return 6;
 }
 
 /**
@@ -58,9 +65,16 @@ function rollLoadedDie () {
  * @param {boolean} climbsTrees - true if climbs rrees, else false
  * @return {string} a string with a guess as to the animal
  */
-function guessAnimal (hasFourLegs,climbsTrees) {
-    /* write your code here! */
-
+function guessAnimal (hasFourLegs, climbsTrees) {
+    if (hasFourLegs && climbsTrees) {
+        return "It's a cat";
+    } else if (!hasFourLegs && climbsTrees) {
+        return "It's a snake";
+    } else if (hasFourLegs && !climbsTrees) {
+        return "It's a dog";
+    } else {
+        return "It's a fish";
+    }
 }
 
 /**
@@ -77,7 +91,27 @@ function guessAnimal (hasFourLegs,climbsTrees) {
  * @return {string} a string with the name of the month
  */
 function month (num) {
-    /* write your code here! */
+    const months = [
+        "Error",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    if (typeof num !== "number" || !Number.isInteger(num) || num < 1 || num > 12) {
+        return "Error";
+    }
+
+    return months[num];
 }
 
 /**
@@ -91,8 +125,13 @@ function month (num) {
  * @return {boolean} true, if is leap year, else false
  */
 function isLeapYear (year) {
-    /* write your code here! */
-
+    if (year % 400 === 0) {
+        return true;
+    }
+    if (year % 100 === 0) {
+        return false;
+    }
+    return year % 4 === 0;
 }
 
 /**
@@ -102,7 +141,12 @@ function isLeapYear (year) {
  * @return {boolean} true, if input is a vowel (upper or lower case); else false.
  */
 function isVowel (character) {
-    /* write your code here! */
+    if (typeof character !== "string" || character.length !== 1) {
+        return false;
+    }
+
+    const lower = character.toLowerCase();
+    return lower === "a" || lower === "e" || lower === "i" || lower === "o" || lower === "u";
 }
 
 /**
@@ -110,4 +154,4 @@ function isVowel (character) {
  * To run at the command line (i.e. to run node "lab3.js") comment out this line
  * To run the test file (i.e. to run "vitest run lab3") this line must be included
  */
-export {  hello, guessAnimal, month, isVowel, isLeapYear, allEqual, rollLoadedDie }
+export { hello, guessAnimal, month, isVowel, isLeapYear, allEqual, rollLoadedDie }
